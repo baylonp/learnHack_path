@@ -1,1 +1,12 @@
 
+# What the hell is a reverse shell?
+ 
+ 
+So basically, when you want to connect to a remote PC or server or something remote that goes online you can use a **bind shell**. You are the one asking :
+
+"Hey , can I connect to you?"
+
+Most of the times, because of firewall, for example if an attacker wants to connect to a remote server behind a firewall of a company, it does not works. 
+The connection gets dropped because the traffic is not legitimate. Also beacuse the server could just expose few ports and there is already traffic through them.
+
+The option an attacker has it to create a **REVERSE SHELL** (thunders + grave and dark voice)
