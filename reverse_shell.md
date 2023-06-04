@@ -92,7 +92,10 @@ const client= net.createConnection({host: "127.0.0.1", port: PORT}, () =>{
 });
 ```
 
-And once the connection as been established, I will see "Connected" \n "$>" on my terminal, the ATTACKER terminal
+And once the connection as been established, I will see "_Connected_" \n "_$>_" on my terminal, the ATTACKER terminal.
+
+
+
 
 
 
