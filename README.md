@@ -9,3 +9,10 @@ My scope is not to provide a thorough explanation of what I do in order to make 
 
 If you happen to read the things I write, consider that the one behind the keyboard is an absolute beginner and if you find any errors on mis-explanations be kind and tell me, I need to know what I am doing wrong.
 
+
+
+
+## Index
+
++ [Basics of reverse shell](reverse_shell)
++ other stuff to come...
