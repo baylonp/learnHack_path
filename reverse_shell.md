@@ -160,7 +160,7 @@ To conclude, we make the client  output the result of our command. Alway using "
 
 ## An example
 
-![](connected_reverse_shell.png)
+![](command_execute-reeverse_shell.png)
 
 
 
