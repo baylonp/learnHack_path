@@ -6,7 +6,7 @@ So basically, when you want to connect to a remote PC or server or something rem
 
 _"Hey , can I connect to you?"_
 
-Most of the times, because of firewall, for example if an attacker wants to connect to a remote server behind a firewall of a company, it does not works. 
+Most of the times, because of firewall, for example if an attacker wants to connect to a remote server behind a firewall of a company, it does not work. 
 The connection gets dropped because the traffic is not legitimate. Also beacuse the server could just expose few ports and there is already traffic through them.
 
 The option an attacker has it to create a **REVERSE SHELL** (thunders + grave and dark voice)
