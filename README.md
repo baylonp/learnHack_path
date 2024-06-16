@@ -1,5 +1,7 @@
 # learnHack_path
 
+Just things I learn and want to share/remember for the future
+
 ##  Scope 
 
 WIth this little corner on github I will try to explain the projects I work on and also the things I study and little by little start to understand about the **Magical Hacking World**.
